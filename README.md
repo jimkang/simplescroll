@@ -39,7 +39,7 @@ Example
 
 [Here's an example.](http://jimkang.com/simplescroll/example)
 
-And [here's an explanation](bl.ocks.org/jimkang/e318dfad9c798a456ded) about how it works.
+And [here's an explanation](http://bl.ocks.org/jimkang/e318dfad9c798a456ded) about how it works.
 
 License
 -------

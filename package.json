@@ -1,0 +1,23 @@
+{
+  "name": "simplescroll",
+  "version": "1.0.0",
+  "description": "A very simple inertial scrolling module that puts together easing functions and a timer to smoothly scroll the page to where you want it.",
+  "main": "simplescroll.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jimkang/simplescroll.git"
+  },
+  "keywords": [],
+  "author": "Jim Kang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jimkang/simplescroll/issues"
+  },
+  "homepage": "https://github.com/jimkang/simplescroll",
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "dependencies": {}
+}

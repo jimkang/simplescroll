@@ -1,0 +1,135 @@
+<html>
+
+<head>
+  <title>Simple inertial scrolling with D3</title>
+</head>
+
+<style>
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  max-width: 20em;
+  align-contents: center;
+}
+
+.item {
+  text-align: center;
+  padding: 1em;
+}
+
+.button {
+  background-color: rgb(234, 106, 68);
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  box-shadow: hsla(240, 30%, 30%, 0.15) 2px 2px;
+  color: #eee;
+  margin: 0.2em;
+  cursor: pointer;
+}
+
+</style>
+
+<body>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="../simplescroll.js"></script>
+
+<div id="container">
+  <div id="top-element" class="scroll-to-middle button">Scroll to a middle element</div>
+  <div class="scroll-to-bottom button">Scroll to the bottom element</div>
+
+  <div class="item">Hooligan</div>
+  <div class="item">Muscleman</div>
+  <div class="item">Tough Guy</div>
+  <div class="item">Bullyboy</div>
+  <div class="item">Tearaway</div>
+  <div class="item">Plug-Ugly</div>
+  <div class="item">Chav</div>
+  <div class="item">Muscle</div>
+  <div class="item">Skinhead</div>
+  <div class="item">Skinhead (10th level)</div>
+  <div class="item">Yob</div>
+  <div class="item">Yob of the Body</div>
+  <div class="item">Yob of Feelings</div>
+  <div class="item">Yob of the Mind</div>
+  <div class="item">Yob of the Mind (15th level)</div>
+  <div class="item">Yob of the Mind (16th level)</div>
+
+  <hr></hr>
+
+  <div class="item">Technologist</div>
+  <div class="item">Hacker</div>
+  <div class="item">Cyberpunk</div>
+  <div class="item">Applied Scientist</div>
+  <div class="item">Cyber-Terrorist</div>
+  <div class="item">Engineer</div>
+  <div class="item">Computer User</div>
+
+  <div class="scroll-to-top button">Scroll to the top element</div>
+  <div class="item" id="middle-element">Middle Element</div>
+  <div class="scroll-to-bottom button">Scroll to the bottom element</div>
+
+  <div class="item">Cracker</div>
+  <div class="item">Programmer</div>
+  <div class="item">Programmer (10th level)</div>
+  <div class="item">Chief Programmer</div>
+  <div class="item">Master Programmer</div>
+  <div class="item">Grandmaster Programmer</div>
+  <div class="item">Grandmaster Programmer (14th level)</div>
+
+  <hr></hr>
+  
+  <div class="item">Bun</div>
+  <div class="item">Bunny</div>
+  <div class="item">Sciurine</div>
+  <div class="item">Con</div>
+  <div class="item">Rodent</div>
+  <div class="item">Rodent (6th level)</div>
+  <div class="item">Rodent (7th level)</div>
+  <div class="item">Rodent (8th level)</div>
+  <div class="item">Rodent (9th level)</div>
+  <div class="item">Squirrel</div>
+  <div class="item">Squirrel (11th level)</div>
+  <div class="item">Squirrel (12th level)</div>
+  <div class="item">Expert Squirrel</div>
+  <div class="item">Prime Squirrel</div>
+
+  <div class="scroll-to-middle button">Scroll to a middle element</div>
+  <div id="bottom-element" class="scroll-to-top button">Scroll to the top element</div>
+
+</div>
+
+<script>
+
+var simpleScroll = createSimpleScroll({
+  d3: d3
+});
+
+d3.selectAll('.scroll-to-middle').on('click', scrollToMiddle);
+d3.selectAll('.scroll-to-top').on('click', scrollToTop);
+d3.selectAll('.scroll-to-bottom').on('click', scrollToBottom);
+
+function scrollToMiddle() {
+  simpleScroll.scrollToElement(d3.select('#middle-element').node(), 1000);
+}
+
+
+function scrollToTop() {
+  simpleScroll.scrollToElement(d3.select('#top-element').node(), 1000);
+}
+
+
+function scrollToBottom() {
+  simpleScroll.scrollToElement(d3.select('#bottom-element').node(), 1000);
+}
+
+</script>

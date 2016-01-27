@@ -4,11 +4,13 @@ function createSimpleScroll(opts) {
   var localD3;
   var easingFn;
   var timer;
+  var root;
 
   if (opts) {
     localD3 = opts.d3;
     easingFn = opts.easingFn;
     timer = opts.timer;
+    root = opts.root;
   }
 
   if (!localD3 && !commonJS) {
@@ -17,7 +19,7 @@ function createSimpleScroll(opts) {
   }
 
   function scrollTo(toTop, time) {
-    var fromTop = document.body.scrollTop;
+    var fromTop = root.scrollTop;
     var scrollDistance = toTop - fromTop;
     var scrolledTop = 0;
 
@@ -27,13 +29,13 @@ function createSimpleScroll(opts) {
       var portion = easingFn(elapsed * 1.0 /time);
       var scrollChange = scrollDistance * portion;
 
-      document.body.scrollTop = fromTop + scrollChange;
+      root.scrollTop = fromTop + scrollChange;
 
       // Stop the timer by returning true if we've scrolled as far as requested.
-      if (scrollDistance < 0 && document.body.scrollTop <= toTop) {
+      if (scrollDistance < 0 && root.scrollTop <= toTop) {
         return true;
       }
-      if (scrollDistance >= 0 && document.body.scrollTop >= toTop) {
+      if (scrollDistance >= 0 && root.scrollTop >= toTop) {
         return true;
       }
       if (elapsed > time) {

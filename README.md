@@ -16,7 +16,8 @@ Via script tags:
     <script src="simplescroll.js"></script>
     var simpleScroll = createSimpleScroll({
       d3: d3,
-      easingFn: d3.ease('cubic')
+      easingFn: d3.ease('cubic'),
+      timer: d3.timer
     });
     simpleScroll.scrollToElement(document.querySelect('#the-goal'), 500);
 
@@ -30,7 +31,8 @@ Via Browserify:
     var simpleScroll = createSimpleScroll({
       d3: d3,
       ease: ease.easeCubicInOut,
-      timer: timer
+      timer: timer,
+      root: document.body
     });
     simpleScroll.scrollToElement(document.querySelect('#the-goal'), 500);
 

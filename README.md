@@ -21,18 +21,18 @@ Via script tags:
 
 Via Browserify:
 
-  var createSimpleScroll = require('simplescroll');
-  var simpleScroll = createSimpleScroll({
-    d3: require('d3') // Or your custom build of D3.
-  });
-  simpleScroll.scrollToElement(document.querySelect('#the-goal'), 500);
+    var createSimpleScroll = require('simplescroll');
+    var simpleScroll = createSimpleScroll({
+      d3: require('d3') // Or your custom build of D3.
+    });
+    simpleScroll.scrollToElement(document.querySelect('#the-goal'), 500);
 
 You can also specify an [easing type](https://github.com/mbostock/d3/wiki/Transitions#d3_ease):
 
-  var simpleScroll = createSimpleScroll({
-    d3: require('d3'),
-    easingType: 'bounce'
-  });
+    var simpleScroll = createSimpleScroll({
+      d3: require('d3'),
+      easingType: 'bounce'
+    });
 
 Example
 -------

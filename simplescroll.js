@@ -3,10 +3,12 @@ var commonJS = (typeof module === 'object' && typeof module.exports === 'object'
 function createSimpleScroll(opts) {
   var localD3;
   var easingFn;
+  var timer;
 
   if (opts) {
     localD3 = opts.d3;
     easingFn = opts.easingFn;
+    timer = opts.timer;
   }
 
   if (!localD3 && !commonJS) {
@@ -19,7 +21,7 @@ function createSimpleScroll(opts) {
     var scrollDistance = toTop - fromTop;
     var scrolledTop = 0;
 
-    localD3.timer(updateScrollTop);
+    timer(updateScrollTop);
 
     function updateScrollTop(elapsed) {
       var portion = easingFn(elapsed * 1.0 /time);

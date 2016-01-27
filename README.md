@@ -24,10 +24,13 @@ Via Browserify:
 
     var d3 = require('d3-select');
     var ease = require('d3-ease');
+    var timer = require('d3-timer');
     var createSimpleScroll = require('simplescroll');
+
     var simpleScroll = createSimpleScroll({
       d3: d3,
-      ease: ease.easeCubicInOut
+      ease: ease.easeCubicInOut,
+      timer: timer
     });
     simpleScroll.scrollToElement(document.querySelect('#the-goal'), 500);
 

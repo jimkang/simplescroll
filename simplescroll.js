@@ -2,23 +2,17 @@ var commonJS = (typeof module === 'object' && typeof module.exports === 'object'
 
 function createSimpleScroll(opts) {
   var localD3;
-  var easingType;
+  var easingFn;
 
   if (opts) {
     localD3 = opts.d3;
-    easingType = opts.easingType;
+    easingFn = opts.easingFn;
   }
 
   if (!localD3 && !commonJS) {
     // Probably being included via script tags. Try the global D3.
     localD3 = d3;
   }
-
-  if (!easingType) {
-    easingType = 'cubic';
-  }
-
-  var easingFn = localD3.ease(easingType);
 
   function scrollTo(toTop, time) {
     var fromTop = document.body.scrollTop;

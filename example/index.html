@@ -111,7 +111,8 @@ body {
 <script>
 
 var simpleScroll = createSimpleScroll({
-  d3: d3
+  d3: d3,
+  easingFn: d3.ease('cubic')
 });
 
 d3.selectAll('.scroll-to-middle').on('click', scrollToMiddle);

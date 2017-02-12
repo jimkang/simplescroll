@@ -6,6 +6,7 @@ function createSimpleScroll(opts) {
   var easingFn;
   var timer;
   var root;
+  var timerInstance;
 
   if (opts) {
     localD3 = opts.d3;
@@ -23,7 +24,7 @@ function createSimpleScroll(opts) {
     var fromTop = root.scrollTop;
     var scrollDistance = toTop - fromTop;
 
-    timer(updateScrollTop);
+    timerInstance = timer(updateScrollTop);
 
     function updateScrollTop(elapsed) {
       var portion = easingFn(elapsed * 1.0 /time);
@@ -50,7 +51,9 @@ function createSimpleScroll(opts) {
   }
 
   function stopScroll() {
-    timer.stop();
+    if (timerInstance) {
+      timerInstance.stop();
+    }
   }
 
   return {

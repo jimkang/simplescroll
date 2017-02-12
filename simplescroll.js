@@ -1,3 +1,4 @@
+/* global d3 */
 var commonJS = (typeof module === 'object' && typeof module.exports === 'object');
 
 function createSimpleScroll(opts) {
@@ -21,7 +22,6 @@ function createSimpleScroll(opts) {
   function scrollTo(toTop, time) {
     var fromTop = root.scrollTop;
     var scrollDistance = toTop - fromTop;
-    var scrolledTop = 0;
 
     timer(updateScrollTop);
 
@@ -49,9 +49,14 @@ function createSimpleScroll(opts) {
     scrollTo(el.offsetTop, time);
   }
 
+  function stopScroll() {
+    timer.stop();
+  }
+
   return {
     scrollTo: scrollTo,
-    scrollToElement: scrollToElement
+    scrollToElement: scrollToElement,
+    stopScroll: stopScroll
   };
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "simplescroll",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "A very simple inertial scrolling module that puts together easing functions and a timer to smoothly scroll the page to where you want it.",
   "main": "simplescroll.js",
   "scripts": {},

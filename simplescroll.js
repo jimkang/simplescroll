@@ -6,7 +6,7 @@ function createSimpleScroll(opts) {
   var easingFn;
   var timer;
   var root;
-  var timerInstance;
+  var timerInstance = null;
 
   if (opts) {
     localD3 = opts.d3;
@@ -32,16 +32,15 @@ function createSimpleScroll(opts) {
 
       root.scrollTop = fromTop + scrollChange;
 
-      // Stop the timer by returning true if we've scrolled as far as requested.
+      // Stop the timer if we've scrolled as far as requested.
       if (scrollDistance < 0 && root.scrollTop <= toTop) {
-        return true;
+        stopScroll();
       }
-      if (scrollDistance >= 0 && root.scrollTop >= toTop) {
-        return true;
+      else if (scrollDistance >= 0 && root.scrollTop >= toTop) {
+        stopScroll();
       }
       if (elapsed > time) {
-        // This is as far as we're going to get.
-        return true;
+        stopScroll();
       }
     }
   }
@@ -53,13 +52,19 @@ function createSimpleScroll(opts) {
   function stopScroll() {
     if (timerInstance) {
       timerInstance.stop();
+      timerInstance = null;
     }
+  }
+
+  function isStillScrolling() {
+    return timerInstance !== null;
   }
 
   return {
     scrollTo: scrollTo,
     scrollToElement: scrollToElement,
-    stopScroll: stopScroll
+    stopScroll: stopScroll,
+    isStillScrolling: isStillScrolling
   };
 }
 

@@ -23,14 +23,14 @@ Via script tags:
 
 Via Browserify:
 
-    var d3 = require('d3-select');
+    var d3 = require('d3-selection');
     var ease = require('d3-ease');
-    var timer = require('d3-timer');
+    var timer = require('d3-timer').timer;
     var createSimpleScroll = require('simplescroll');
 
     var simpleScroll = createSimpleScroll({
       d3: d3,
-      ease: ease.easeCubicInOut,
+      easingFn: ease.easeCubicInOut,
       timer: timer,
       root: document.body
     });

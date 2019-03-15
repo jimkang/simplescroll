@@ -41,7 +41,7 @@ You can also specify a third `marginAboveTargetElement` parameter to `scrollToEl
 Example
 -------
 
-[Here's an example.](http://jimkang.com/simplescroll/)
+[Here's an example.](https://jimkang.com/simplescroll/)
 
 And [here's an explanation](http://bl.ocks.org/jimkang/e318dfad9c798a456ded) about how it works.
 

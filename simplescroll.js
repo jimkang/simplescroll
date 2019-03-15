@@ -45,8 +45,8 @@ function createSimpleScroll(opts) {
     }
   }
 
-  function scrollToElement(el, time) {
-    scrollTo(el.offsetTop, time);
+  function scrollToElement(el, time, marginAboveTargetElement = 0) {
+    scrollTo(el.offsetTop - marginAboveTargetElement, time);
   }
 
   function stopScroll() {

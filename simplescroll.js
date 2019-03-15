@@ -1,5 +1,5 @@
 /* global d3 */
-var commonJS = (typeof module === 'object' && typeof module.exports === 'object');
+var commonJS = typeof module === 'object' && typeof module.exports === 'object';
 
 function createSimpleScroll(opts) {
   var localD3;
@@ -27,7 +27,7 @@ function createSimpleScroll(opts) {
     timerInstance = timer(updateScrollTop);
 
     function updateScrollTop(elapsed) {
-      var portion = easingFn(elapsed * 1.0 /time);
+      var portion = easingFn((elapsed * 1.0) / time);
       var scrollChange = scrollDistance * portion;
 
       root.scrollTop = fromTop + scrollChange;
@@ -35,8 +35,7 @@ function createSimpleScroll(opts) {
       // Stop the timer if we've scrolled as far as requested.
       if (scrollDistance < 0 && root.scrollTop <= toTop) {
         stopScroll();
-      }
-      else if (scrollDistance >= 0 && root.scrollTop >= toTop) {
+      } else if (scrollDistance >= 0 && root.scrollTop >= toTop) {
         stopScroll();
       }
       if (elapsed > time) {

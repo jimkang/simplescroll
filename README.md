@@ -29,17 +29,19 @@ Via Browserify:
     var createSimpleScroll = require('simplescroll');
 
     var simpleScroll = createSimpleScroll({
-      d3: d3,
+      d3,
       easingFn: ease.easeCubicInOut,
-      timer: timer,
+      timer,
       root: document.body
     });
     simpleScroll.scrollToElement(document.querySelect('#the-goal'), 500);
 
+You can also specify a third `marginAboveTargetElement` parameter to `scrollToElement` so that you can have a little head space over the element. e.g. If you pass 20, there will be 20px between the top of the view and the element that has been scrolled to.
+
 Example
 -------
 
-[Here's an example.](http://jimkang.com/simplescroll/example)
+[Here's an example.](http://jimkang.com/simplescroll/)
 
 And [here's an explanation](http://bl.ocks.org/jimkang/e318dfad9c798a456ded) about how it works.
 
